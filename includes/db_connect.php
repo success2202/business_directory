@@ -5,5 +5,4 @@ if(!$con){
   echo "connection failed". mysqli_connect_error();
 }
 
-
 ?>
