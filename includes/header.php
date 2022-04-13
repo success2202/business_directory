@@ -1,4 +1,4 @@
-
+<?php include('includes/session_handler.php') ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,23 +41,26 @@
           <!-- Nav Start -->
           <div class="getfundnav">
             <!-- user profile picture-->
-            <div style="border-radius: 20px; width: 90px; height: 90px; background: #fff;  margin-left: 20px; margin-bottom: 10px; padding:10px;">
+            <?php if(isset($_SESSION['user_id'])) {?>  <div style="border-radius: 20px; width: 90px; height: 90px; background: #fff;  margin-left: 20px; margin-bottom: 10px; padding:10px;">
               <img src="images/mikky.png" height="30px" width="30">
             </div>
+            <?php }?>
             <ul id="responsive">
-
+                <?php if(isset($_SESSION['user_id'])) {?>
               <li><a class="current sf-with-ul" href="index.php">Home</a></li>
               <li><a class="sf-with-ul" href="admin/Register.php">Profile</a>
               </li>
-              <li><a class="sf-with-ul" href="blogs.php">Blogs</a>
+              <li><a class="sf-with-ul" href="blogs.php">Blogs</a></li>       
+              
+              <?php }else{ ?>
+                <li><a class="current sf-with-ul" href="index.php">Login</a></li>
+              <li><a class="sf-with-ul" href="admin/Register.php">Register</a>
               </li>
-      
-             
-              </li>
+              <?php }?>
             </ul>
 
           </div>
-          <div style="border-radius: 20px; width: 30px; height: 30px;  margin-left: 20px; position: absolute; bottom: ; padding:1px;">
+          <div style="border-radius: 20px; width: 30px; height: 30px;  margin-left: 20px; position: absolute; bottom: 20px; padding:1px;">
              <a href="contact-us.php"> <img src="images/support3.png" height="30px" width="30"></a>
           <!-- Nav End --> 
         </div>
