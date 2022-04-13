@@ -1,4 +1,4 @@
-<?php include('includes/session_handler.php') ?>
+<?php include('session_handler.php') ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS -->
-<link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="../css/style.css" type="text/css" rel="stylesheet" />
 <!-- Favicon -->
 <!-- Favicon and Touch Icons -->
 <link href="images/favicon.png" rel="shortcut icon" type="image/png">
@@ -25,7 +25,7 @@
       <nav class="getfund-navbar justify-content-between" id="listingNav"> 
         
         <!-- Logo --> 
-        <a class="nav-brand" href="index.php"><img src="images/logo-header2.png" alt="logo"></a> 
+        <a class="nav-brand" href="index.php"><img src="../images/logo-header2.png" alt="logo"></a> 
         
         <!-- Navbar Toggler -->
         <div class="getfund-navbar-toggler"> <span class="navbarToggler"><span></span><span></span><span></span></span> </div>
@@ -53,15 +53,15 @@
               <li><a class="sf-with-ul" href="blogs.php">Blogs</a></li>       
               
               <?php }else{ ?>
-                <li><a class="current sf-with-ul" href="index.php">Login</a></li>
-              <li><a class="sf-with-ul" href="admin/Register.php">Register</a>
+                <li><a class="current sf-with-ul" href="login.php">Login</a></li>
+              <li><a class="sf-with-ul" href="register.php">Register</a>
               </li>
               <?php }?>
             </ul>
 
           </div>
           <div style="border-radius: 20px; width: 30px; height: 30px;  margin-left: 20px; position: absolute; bottom: 20px; padding:1px;">
-             <a href="contact-us.php"> <img src="images/support3.png" height="30px" width="30"></a>
+             <a href="contact-us.php"> <img src="../images/support3.png" height="30px" width="30"></a>
           <!-- Nav End --> 
         </div>
 
