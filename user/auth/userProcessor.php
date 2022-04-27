@@ -9,7 +9,7 @@ $Reglog = $_POST['Reglog'];
 
 function checkUser($username, $fname){
     global $con;
-    $user = "SELECT * FROM guest where username = '$username' || fname = '$Fname' LIMIT 1";
+    $user = "SELECT * FROM guest where username = '$username' || fname = '$fname' LIMIT 1";
     $ucheck = mysqli_query($con, $user);
     $uchk = mysqli_num_rows($ucheck);
     if ($ucheck){
@@ -42,7 +42,7 @@ function logfunc($username, $pass){
     $checks = mysqli_query($con, $sql);
     if($checks){
         $users = mysqli_fetch_assoc($checks);
-        $pass = base64_decode($users['pass']);
+        $password = base64_decode($users['pass']);
         if($password == $pass){
             $_SESSION['username'] = $username;
             $_SESSION['pass'] = $pass;
@@ -56,15 +56,11 @@ function logfunc($username, $pass){
         Header("location:./login.php");
     }
     }
-    if($Reglog == "login"){
-        logfunc($username, $pass);
-        
-    }
-  
-    if($Reglog == "register"){
-        Regfunc($fname, $username, $pass);
 
-    }
+
+    if($Reglog == "login"){logfunc($username, $pass); }
+  
+    if($Reglog == "register"){ Regfunc($fname, $username, $pass);}
     
 
 

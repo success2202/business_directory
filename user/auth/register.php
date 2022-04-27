@@ -29,12 +29,13 @@ ini_set('display_errors','on');
             <input name="pass" id="pass" placeholder="Password" type="password" required="" data-msg="Please enter your password" class="form-control">
           </div>
           <button type="submit" name="submit-guest" class="btn btn-lg btn-block btn-primary">Sign up</button>
+          <?php
+        if(isset($_SESSION['username'])) echo "<span style=\" color:red \">" .$_SESSION['username'] ."</span>" ;
+        session_destroy()?>
           <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
         <p class="text-center"><small class="text-muted text-center">Already have an account? <a href="login.php">Sign In</a></small></p>
           <hr class="my-4">
-          <?php
-if(isset($_SESSION['username'])) echo "<span style=\" color:red \">" .$_SESSION['username'] ."</span>" 
-?>
+ 
         </form>
 </div>
     </div>
