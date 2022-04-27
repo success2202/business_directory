@@ -32,6 +32,8 @@ ini_set('display_errors','on');
           <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
         <p class="text-center"><small class="text-muted text-center">Do not have an account? <a href="register.php">Sign Up</a></small></p>
           <hr class="my-4">
+
+          <?php if(isset($_SESSION['error'])) { ?><span style="color:#fff; background:red"> <?=$_SESSION['error'] ?> <?php }?></span>
         </form>
 </div>
     </div>

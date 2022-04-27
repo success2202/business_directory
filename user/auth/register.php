@@ -32,15 +32,19 @@ ini_set('display_errors','on');
           <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
         <p class="text-center"><small class="text-muted text-center">Already have an account? <a href="login.php">Sign In</a></small></p>
           <hr class="my-4">
+          <?php
+if(isset($_SESSION['username'])) echo "<span style=\" color:red \">" .$_SESSION['username'] ."</span>" 
+?>
         </form>
 </div>
     </div>
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block"> 
       <!-- Image-->
-      <div style="background-image: url(images/register.jpg);" class="bg-cover h-100 mr-n3"></div>
+      <div style="background-image: url(images/register.jpg)"; class="bg-cover h-100 mr-n3"></div>
     </div>
   </div>
 </div>  
+
   <?php 
 include("footer.php");
   ?>
