@@ -1,4 +1,7 @@
-<?php include('session_handler.php') ?>
+<?php
+include("includes/session_handler.php");
+include("includes/mySession.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,17 +44,17 @@
           <!-- Nav Start -->
           <div class="getfundnav">
             <!-- user profile picture-->
-            <?php if(isset($_SESSION['user_id'])) {?>  <div style="border-radius: 20px; width: 90px; height: 90px; background: #fff;  margin-left: 20px; margin-bottom: 10px; padding:10px;">
-              <img src="images/mikky.png" height="30px" width="30">
+            <?php if(isset($_SESSION['username'])) {?>  <div style="border-radius: 20px; width: 90px; height: 90px; background: #fff;  margin-left: 20px; margin-bottom: 10px; padding:10px;">
+              <img src="images/logo-header2.png" height="30px" width="30">
             </div>
             <?php }?>
             <ul id="responsive">
-                <?php if(isset($_SESSION['user_id'])) {?>
+                <?php if(isset($_SESSION['username'])) {?>
               <li><a class="current sf-with-ul" href="index.php">Home</a></li>
               <li><a class="sf-with-ul" href="admin/Register.php">Profile</a>
               </li>
-              <li><a class="sf-with-ul" href="blogs.php">Blogs</a></li>       
-              
+              <li><a class="sf-with-ul" href="blogs.php">Blogs</a></li>   
+              <li><a class="sf-with-ul" href="logout.php">Logout</a></li>    
               <?php }else{ ?>
                 <li><a class="current sf-with-ul" href="auth/login.php">Login</a></li>
               <li><a class="sf-with-ul" href="auth/register.php">Register</a>

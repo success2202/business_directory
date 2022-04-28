@@ -1,6 +1,5 @@
 <?php include("header.php"); 
       include("../includes/db_connect.php");
-
 error_reporting(E_ALL);
 ini_set('display_errors','on');
 ?>
@@ -13,15 +12,10 @@ ini_set('display_errors','on');
         <div class="mb-4">
           <h2>Login</h2>
           <p class="text-muted">
-            
-
           </p>
         </div>
         <form class="form-validate" method="POST" action="userProcessor.php">
-          
-
           <input type="hidden" name="Reglog" value="login">
-
            <div class="form-group">
           <input name="username" id="username" type="text" placeholder="Enter Username" autocomplete="off" required="" data-msg="Please enter your email" class="form-control">
         </div>
@@ -29,9 +23,7 @@ ini_set('display_errors','on');
             <input name="pass" id="pass" placeholder="Password" type="password" required="" data-msg="Please enter your password" class="form-control">
           </div>
           <button type="submit" name="submit-guest" class="btn btn-lg btn-block btn-primary">Sign in</button>
-          
-          <?php if(isset($_SESSION['error'])) { ?><span class="btn btn-outline-danger"> <?=$_SESSION['error'] ?> <?php }
-          
+          <?php if(isset($_SESSION['error'])) { ?><span class=" btn-outline-danger"> <?=$_SESSION['error'] ?> <?php }
           session_destroy();?></span>
         
           <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
