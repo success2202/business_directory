@@ -40,7 +40,6 @@ include("includes/mySession.php");
           <div class="getfundcloseIcon">
             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
           </div>
-          
           <!-- Nav Start -->
           <div class="getfundnav">
             <!-- user profile picture-->
@@ -61,7 +60,6 @@ include("includes/mySession.php");
               </li>
               <?php }?>
             </ul>
-
           </div>
           <div style="border-radius: 20px; width: 30px; height: 30px;  margin-left: 20px; position: absolute; bottom: 20px; padding:1px;">
              <a href="contact-us.php"> <img src="images/support3.png" height="30px" width="30"></a>
