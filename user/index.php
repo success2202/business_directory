@@ -1,6 +1,10 @@
-<?php include('includes/db_connect.php') ;
+<?php 
+include('includes/db_connect.php') ;
 include('includes/header.php');
 include('includes/functionProcessor.php');
+
+error_reporting(E_ALL);
+ini_set('display_errors',0);
 ?>
 <div class="main-banner digital-agency-banner">
   <div class="d-table">
@@ -32,7 +36,7 @@ include('includes/functionProcessor.php');
                     </div>
                   </div>
                   <div class="col-lg-2">
-                    <button type="submit" name= "search" class="btn btn-primary btn-block rounded-xl h-100">Search </button>
+                    <button type="submit" name="search" class="btn btn-primary btn-block rounded-xl h-100">Search </button>
                   </div>
                 </div>
               </form>
@@ -43,6 +47,70 @@ include('includes/functionProcessor.php');
     </div>
   </div>
 </div>
+
+    <?php
+    function SearchBusiness(){  
+      global $con;  
+          $name = $_POST['name'];
+          $location = $_POST['location'];
+          $sql = "SELECT * FROM business WHERE( `name` LIKE('$name%') ||   `description` LIKE('$name%') &&  `city` LIKE('$location%'))";
+          $chk = mysqli_query($con, $sql);
+          return $chk;
+  }
+    if($_POST['name']){
+      ?>
+      <section class="Campaigns pt80 pb40">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <h1 class="paddtop1 font-weight lspace-sm">Search Results</h1>
+      </div>
+    </div>
+      <?php
+      $results = SearchBusiness();
+while($result = mysqli_fetch_assoc($results)){ ?>
+<div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="ListriBox">
+          <figure> <a href="single_page.php?busid=<?php echo urlencode($result['business_id']) ;?>" class="wishlist_bt"></a> 
+          <a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>">
+          <img src="<?php echo $result['images'] ;?>" class="img-fluid" alt="" >
+          
+            <div class="read_more"><span>Read more</span></div>
+            </a> </figure>
+          <div class="ListriBoxmain">
+            <h3><a href="single_page.php?busid=<?php echo urlencode($result['business_id']) ;?>"><?php echo $result['name']; ?></a></h3>
+            <p><?php echo substr($result['description'],0,50); ?></p>
+            <a class="address" href="#"><?php echo $result['address']; ?></a> </div>
+          <ul>
+            <li><span class="Ropen">
+              <?php if($result['status'] == 1)
+            {echo " Active" ; } 
+            else{echo " Inactive" ; } 
+            ?></span></li>
+            <li>
+              <?php 
+
+              $add = 0;
+              $id = $result['business_id'];
+              $req = "SELECT * FROM review WHERE business_id = $id";
+              $rev = mysqli_query($con, $req);
+              if(!$rev){ echo "failed" .mysqli_connect_error() ;}
+              while ($rol = mysqli_fetch_assoc($rev)){
+              
+                $add += $rol ['rated'] ;
+              };
+              ?>
+              <div class="R_retings"><span>Rated<em><?php echo $add ." Reviews"; ?></em></span><strong><?php echo $add; ?></strong></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <?php
+   } }else{ ?>
 <section class="Campaigns pt80 pb40">
   <div class="container">
     <div class="row mb-5">
@@ -50,8 +118,8 @@ include('includes/functionProcessor.php');
         <h1 class="paddtop1 font-weight lspace-sm">Most Recents</h1>
       </div>
     </div>
-    <?php
-$chk = topRated();
+      <?php 
+$chk = mostRecent();
 while($res = mysqli_fetch_assoc($chk)){ ?>
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -70,7 +138,7 @@ while($res = mysqli_fetch_assoc($chk)){ ?>
             <li><span class="Ropen">
               <?php if($res['status'] == 1)
             {echo " Active" ; } 
-            else{echo " Close" ; } 
+            else{echo " Inactive" ; } 
             ?></span></li>
             <li>
               <?php 
@@ -85,7 +153,7 @@ while($res = mysqli_fetch_assoc($chk)){ ?>
                 $add += $rol ['rated'] ;
               };
               ?>
-              <div class="R_retings"><span>Rated<em><?php echo $add ." Reviews"; ?></em></span><strong><?php echo $add/5; ?></strong></div>
+              <div class="R_retings"><span>Rated<em><?php echo $add ." Reviews"; ?></em></span><strong><?php echo $add; ?></strong></div>
             </li>
           </ul>
         </div>
@@ -95,6 +163,8 @@ while($res = mysqli_fetch_assoc($chk)){ ?>
     <?php }?>
   </div>
 </section>
+
+<?php } ?>
     
 <?php include('includes/footer.php') ?>
 
