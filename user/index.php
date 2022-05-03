@@ -43,11 +43,58 @@ include('includes/functionProcessor.php');
     </div>
   </div>
 </div>
-<?php
+<section class="Campaigns pt80 pb40">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <h1 class="paddtop1 font-weight lspace-sm">Most Recents</h1>
+      </div>
+    </div>
+    <?php
 $chk = topRated();
-$mm = mysqli_fetch_assoc($chk);
-var_dump($mm);
+while($res = mysqli_fetch_assoc($chk)){ ?>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="ListriBox">
+          <figure> <a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>" class="wishlist_bt"></a> 
+          <a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>">
+          <img src="<?php echo $res['images'] ;?>" class="img-fluid" alt="" >
+          
+            <div class="read_more"><span>Read more</span></div>
+            </a> </figure>
+          <div class="ListriBoxmain">
+            <h3><a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>"><?php echo $res['name']; ?></a></h3>
+            <p><?php echo substr($res['description'],0,50); ?></p>
+            <a class="address" href="#"><?php echo $res['address']; ?></a> </div>
+          <ul>
+            <li><span class="Ropen">
+              <?php if($res['status'] == 1)
+            {echo " Active" ; } 
+            else{echo " Close" ; } 
+            ?></span></li>
+            <li>
+              <?php 
 
-?>
+              $add = 0;
+              $id = $res['business_id'];
+              $req = "SELECT * FROM review WHERE business_id = $id";
+              $rev = mysqli_query($con, $req);
+              if(!$rev){ echo "failed" .mysqli_connect_error() ;}
+              while ($rol = mysqli_fetch_assoc($rev)){
+              
+                $add += $rol ['rated'] ;
+              };
+              ?>
+              <div class="R_retings"><span>Rated<em><?php echo $add ." Reviews"; ?></em></span><strong><?php echo $add/5; ?></strong></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <?php }?>
+  </div>
+</section>
+    
 <?php include('includes/footer.php') ?>
 

@@ -4,7 +4,7 @@ include("db_connect.php");
 
 function topRated(){
     global $con;
-$sql = "SELECT * FROM review WHERE rated >= 3";
+$sql = "SELECT * FROM business WHERE status = 1";
 $chk = mysqli_query($con, $sql);
 return $chk;
 }
