@@ -26,16 +26,12 @@ include("includes/mySession.php");
     <div class="getfund-nav-container breakpoint-off"> 
       <!-- getfund Menu -->
       <nav class="getfund-navbar justify-content-between" id="listingNav"> 
-        
         <!-- Logo --> 
         <a class="nav-brand" href="index.php"><img src="images/logo-header2.png" alt="logo"></a> 
-        
         <!-- Navbar Toggler -->
         <div class="getfund-navbar-toggler"> <span class="navbarToggler"><span></span><span></span><span></span></span> </div>
-        
         <!-- Menu -->
         <div class="getfund-menu"> 
-          
           <!-- close btn -->
           <div class="getfundcloseIcon">
             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
@@ -50,9 +46,8 @@ include("includes/mySession.php");
             <ul id="responsive">
                 <?php if(isset($_SESSION['username'])) {?>
               <li><a class="current sf-with-ul" href="index.php">Home</a></li>
-              <li><a class="sf-with-ul" href="admin/Register.php">Profile</a>
-              </li>
-              <li><a class="sf-with-ul" href="blogs.php">Blogs</a></li>   
+              <li><a class="sf-with-ul" href="profile.php?user_id=<?php echo $_SESSION['username'] ?>">Profile</a>
+              </li> 
               <li><a class="sf-with-ul" href="logout.php">Logout</a></li>    
               <?php }else{ ?>
                 <li><a class="current sf-with-ul" href="auth/login.php">Login</a></li>
@@ -65,8 +60,6 @@ include("includes/mySession.php");
              <a href="contact-us.php"> <img src="images/support3.png" height="30px" width="30"></a>
           <!-- Nav End --> 
         </div>
-
-
       </nav>
     </div>
   </div>

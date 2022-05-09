@@ -2,7 +2,6 @@
 include('includes/db_connect.php') ;
 include('includes/header.php');
 include('includes/functionProcessor.php');
-
 error_reporting(E_ALL);
 ini_set('display_errors',0);
 ?>
@@ -47,7 +46,6 @@ ini_set('display_errors',0);
     </div>
   </div>
 </div>
-
     <?php
     function SearchBusiness(){  
       global $con;  
