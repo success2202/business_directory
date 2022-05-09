@@ -6,9 +6,9 @@ include('includes/functionProcessor.php');
 error_reporting(E_ALL);
 ini_set('display_errors','on');
 //db connection test
-$id = $_SESSION['username'];
+$username = $_SESSION['username'];
 
-$sql = "SELECT * FROM guest WHERE username = '$id'";
+$sql = "SELECT * FROM guest WHERE username = '$username'";
 $con = mysqli_query($con, $sql);
 if(!$con){ echo "connection was not successful" . mysqli_connect_error();}
 while($rest = mysqli_fetch_assoc($con)){
