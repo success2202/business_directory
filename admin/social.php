@@ -1,8 +1,9 @@
-  <?php include("includes/nav2.php"); 
+  <?php include("includes/header.php"); 
       include ("includes/db_connect.php");
 error_reporting(E_ALL);
 ini_set('display_errors','on');
 
+$bizid = $_GET['Biz_id'];
 ?>
 <!-- End Main Menu Area -->
 
@@ -10,7 +11,7 @@ ini_set('display_errors','on');
             <div class="profileIntro paraMargin">
               <h3>Additional Information</h3>
               <p>Connect your customers to your social network</p>
-              <form method="POST" action="business_processor.php" class="listing__form">
+              <form method="POST" action="socialProcessor.php" class="listing__form">
               <div class="row">
                 <div class="form-group col-sm-6 col-sm-pull-6 col-xs-12">
                   <label for="listingEmail">Business Email</label>
@@ -39,6 +40,9 @@ ini_set('display_errors','on');
             <div class="profileIntro paraMargin">
               <h3>Opening Hours</h3>
               <p>Example: 10.00am - 5.00pm</p>
+
+                  <input type="hidden" name="Biz_id" value = "<?= $_GET['biz_id']?>">
+          
               <div class="row">
                 <div class="form-group col-md-4 col-sm-6 col-xs-12">
                   <label for="mondayTime">Monday</label>
@@ -67,6 +71,8 @@ ini_set('display_errors','on');
                 <div class="form-group col-md-4 col-sm-6 col-xs-12">
                   <label for="sundayTime">Sunday</label>
                   <input type="text" name="sunday" class="form-control" id="sundayTime" placeholder="Closed">
+                  
+                  <input type="hidden" name="weeks" value="social">
                 </div>
               </div>
             </div>
@@ -76,5 +82,5 @@ ini_set('display_errors','on');
           </div>
         </form>
          <?php 
-include "includes/footer2.php";
+include "includes/footer.php";
   ?>
