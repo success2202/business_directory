@@ -85,7 +85,7 @@ if(!$chk){
 }
 
 while($res = mysqli_fetch_assoc($chk)){ 
-    
+               
     ?>
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">

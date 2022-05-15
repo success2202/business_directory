@@ -6,9 +6,9 @@ include('includes/header.php');
 error_reporting(E_ALL);
 ini_set('display_errors','on');
 //db connection test
-$user = $_SESSION['username'];
+$user = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM users WHERE email = '$user'";
+$sql = "SELECT * FROM users WHERE user_id = $user";
 $chs = mysqli_query($con, $sql);
 
 if(!$chs){ echo "connection was not successful" . mysqli_connect_error();}

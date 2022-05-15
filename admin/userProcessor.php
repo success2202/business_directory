@@ -11,7 +11,7 @@ $nation = $_POST['nationality'];
 $Reglog = $_POST['Reglog'];  
 
 
-function checkUser($email, $fname){
+function checkUser($email){
     global $con;
     $user = "SELECT * FROM users where email = '$email' LIMIT 1";
     $ucheck = mysqli_query($con, $user);
@@ -24,7 +24,7 @@ function checkUser($email, $fname){
 
 
 function Regfunc($email, $pass, $phone, $fname,$lname, $city, $nation){
-     $getU = checkUser($username, $fname);
+     $getU = checkUser($email);
      if ($getU){
          return header("location:./register.php");
          echo 'the username is taken';
@@ -44,11 +44,12 @@ function logfun($email, $pass){
     global $con;
     $sql = "SELECT * FROM users WHERE email ='$email' LIMIT 1";
     $checks = mysqli_query($con, $sql);
-    //var_dump($checks);
-    //die();
     if($checks){
         $users = mysqli_fetch_assoc($checks);
+    
         $password = base64_decode($users['pass']);
+        // var_dump($pass . ' '. $password);
+        // die();
         if($password == $pass){
             $_SESSION['user_id'] = $users['user_id'];
             $_SESSION['pass'] = $pass;

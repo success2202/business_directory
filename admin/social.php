@@ -1,9 +1,12 @@
   <?php include("includes/header.php"); 
       include ("includes/db_connect.php");
+      include ("business_processor.php");
 error_reporting(E_ALL);
-ini_set('display_errors','on');
+ini_set('display_errors',0);
+$busid = get_business();
 
-$bizid = $_GET['Biz_id'];
+//  var_dump($busid);
+//  die();
 ?>
 <!-- End Main Menu Area -->
 
@@ -11,7 +14,7 @@ $bizid = $_GET['Biz_id'];
             <div class="profileIntro paraMargin">
               <h3>Additional Information</h3>
               <p>Connect your customers to your social network</p>
-              <form method="POST" action="socialProcessor.php" class="listing__form">
+              <form method="POST" action="business_processor.php" class="listing__form">
               <div class="row">
                 <div class="form-group col-sm-6 col-sm-pull-6 col-xs-12">
                   <label for="listingEmail">Business Email</label>
@@ -41,7 +44,7 @@ $bizid = $_GET['Biz_id'];
               <h3>Opening Hours</h3>
               <p>Example: 10.00am - 5.00pm</p>
 
-                  <input type="hidden" name="Biz_id" value = "<?= $_GET['biz_id']?>">
+                  <input type="hidden" name="busid" value="<?php echo $busid; ?>">
           
               <div class="row">
                 <div class="form-group col-md-4 col-sm-6 col-xs-12">
@@ -72,13 +75,13 @@ $bizid = $_GET['Biz_id'];
                   <label for="sundayTime">Sunday</label>
                   <input type="text" name="sunday" class="form-control" id="sundayTime" placeholder="Closed">
                   
-                  <input type="hidden" name="weeks" value="social">
+                 
                 </div>
               </div>
             </div>
           </div>
            <div class="form-footer text-center">
-            <button type="submit" name="social-submit" class="btn btn-primary btn-block rounded-xl h-100">Submit </button>
+            <input type="submit" name="social" value="submit" class="btn btn-primary btn-block rounded-xl h-100">
           </div>
         </form>
          <?php 
