@@ -46,10 +46,10 @@ if(isset($user_id)){
               <tr class="rowItem">
                 <td><ul class="list-inline listingsInfo">
                   
-                    <li><a href="single_page.php?busid=<?php echo urlencode($bisCount['business_id']); ?>"><img src="<?php echo $bisCount['images']; ?>" alt="Image Listings"></a></li>
+                    <li><a href="single_page.php?busid=<?php echo urlencode($bisCount['business_id']); ?>"><img src="../uploads/<?php echo $bisCount['images'];  ?>" style="width:50px; height:50px" alt="Image Listings"></a></li>
                     
                     <li>
-                      <h3><?php echo $bisCount['name']; ?><i class="fas fa-check-circle"></i></h3>
+                      <h6><?php echo $bisCount['name']; ?><i class="fas fa-check-circle"></i></h6>
     
                     </li>
                   </ul></td>

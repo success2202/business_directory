@@ -27,11 +27,11 @@ $res = mysqli_fetch_assoc($chk);
               <div class="row">
                 <div class="form-group col-sm-6 col-xs-12">
                   <label for="listingTitle">Business Name</label>
-                  <input type="text" name = "bizName"class="form-control" id="listingTitle" placeholder="<?php echo $res['name'];?>">
+                  <input type="text" name = "bizName"class="form-control" id="listingTitle" value="<?php echo $res['name'];?>">
                 </div>
                 <div class="form-group col-sm-12 col-xs-12">
                   <label for="discribeTheListing">Business Description</label>
-                  <textarea class="form-control" name="description" rows="2" placeholder="<?php echo $res['description'];?>"></textarea>
+                  <textarea class="form-control" name="description" rows="2"><?php echo $res['description'];?></textarea>
                 </div>
               </div>
             </div>
@@ -42,16 +42,16 @@ $res = mysqli_fetch_assoc($chk);
               <div class="row">
                 <div class="form-group col-sm-6 col-xs-12">
                   <label for="listingAddress">Office Address</label>
-                  <input type="text" name="bizAddress" class="form-control" id="listingAddress" placeholder="<?php echo $res['address'];?>" autocomplete="off">
+                  <input type="text" name="bizAddress" class="form-control" id="listingAddress" value="<?php echo $res['address'];?>" autocomplete="off">
                 </div>
           
                 <div class="form-group col-sm-6 col-sm-pull-6 col-xs-12">
                   <label for="listingPhone">Business Phone</label>
-                  <input type="number" name="phone" class="form-control" id="listingPhone" placeholder="<?php echo "0".$res['phone'];?>">
+                  <input type="number" name="phone" class="form-control" id="listingPhone" value="<?php echo "0".$res['phone'];?>">
                 </div>
                 <div class="form-group col-sm-6 col-xs-12">
                   <label for="listingAddress">City</label>
-                  <input type="text" name="city" class="form-control" id="listingAddress" placeholder="<?php echo $res['city'];?>" autocomplete="off">
+                  <input type="text" name="city" class="form-control" id="listingAddress" value="<?php echo $res['city'];?>" autocomplete="off">
                 </div>
               </div>
             </div>
@@ -64,8 +64,7 @@ $res = mysqli_fetch_assoc($chk);
                   <div class="imagUploader text-center">
                     <div class="file-upload">
                       <div class="upload-area">
-                      <input type="file" name="image" id="fff" class="form-control input-sm mb5" placeholder="<?php echo $res['images'];?>"  value="image">
-                        
+                      <input type="file" name="image" id="fff" class="form-control input-sm mb5" value="<?php echo $res['images'];?>" >
                       </div>
                     </div>
                   </div>
@@ -74,11 +73,8 @@ $res = mysqli_fetch_assoc($chk);
             </div>
           </div>
           <div class="form-footer text-center">
-            <button type="submit" name="submit" class="btn-submit">Update</button>
-            
-          </div>
-           <div class="form-footer text-center">
-            <button style="background-color:red; margin:10px"type="submit" name="submit2" class="btn-submit">Delete</button>
+            <button type="submit" name="submit" class="btn btn-primary w-50">Update</button>
+            <button class="btn btn-danger w-50"type="submit" name="submit2" class="btn-submit">Delete</button>
             
           </div>
         </form>
@@ -99,9 +95,9 @@ $res = mysqli_fetch_assoc($chk);
         
 $tm = md5(time());
 $fn=$_FILES['image']['name'];
-$tmploc=$_FILES['images']['tmp_name'];
-$dir = "../uploads/" .$tm .$fn;
-move_uploaded_file($tmploc, $dir);
+$tmploc=$_FILES['image']['tmp_name'];
+$dir = "../uploads/".$fn;
+move_uploaded_file($tmploc,$dir);
 
         //update business details
 

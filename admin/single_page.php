@@ -22,7 +22,7 @@ $res = mysqli_fetch_assoc($chk);
               if(!$relv){ echo "failed" .mysqli_connect_error() ;}
                $roc = mysqli_fetch_assoc($relv);
               ?>
-    <section class="pt-7 pb-5 d-flex align-items-end res-top-overlay" style="background-image: url( '<?php echo $res['images'] ;?>')">
+    <section class="pt-7 pb-5 d-flex align-items-end res-top-overlay" style="background-image: url( '../uploads/<?php echo $res['images'] ;?>')">
   <div class="container overlay-content">
     <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
       <div class="text-white mb-4 mb-lg-0">

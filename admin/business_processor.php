@@ -32,7 +32,6 @@ $busid = $_POST['busid'];
 // die();
 
 
-
 $file = $_FILES["image"]["name"]; 
 $dir = "../uploads/".$file;
 $dd = move_uploaded_file($_FILES["image"]["tmp_name"],$dir);

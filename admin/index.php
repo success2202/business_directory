@@ -150,7 +150,7 @@ while($res = mysqli_fetch_assoc($chk)){ ?>
         <div class="ListriBox">
           <figure> <a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>" class="wishlist_bt"></a> 
           <a href="single_page.php?busid=<?php echo urlencode($res['business_id']) ;?>">
-          <img src="<?php echo $res['images'] ;?>" class="img-fluid" alt="" >
+          <img src="../uploads/<?php echo $res['images'] ;?>" class="img-fluid" alt="" >
             <div class="read_more"><span>Read more</span></div>
             </a> </figure>
           <div class="ListriBoxmain">
