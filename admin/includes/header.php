@@ -52,7 +52,7 @@ include('mySession.php');
              
               <li><a class="sf-with-ul" href="my_business.php?user_id=<?php echo $_SESSION['user_id']; ?>">My Business</a></li>
               <li><a class="sf-with-ul" href="add_business.php?user_id=<?php echo $_SESSION['user_id']; ?>">Add Business</a></li>
-              <li><a class="sf-with-ul" href="social.php?user_id=<?php echo $_SESSION['user_id']; ?>">Add Social/Work Hours</a></li>    
+   
               <li><a class="sf-with-ul" href="../user/logout.php">Logout</a></li>
               <?php }else{ ?>
                 <li><a class="current sf-with-ul" href="login.php">Login</a></li>

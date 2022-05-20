@@ -1,6 +1,6 @@
 <?php 
 
-$con = mysqli_connect("localhost", "root", "", "business_directory");
+$con = mysqli_connect("localhost", "root", "", "businessdb");
 if(!$con){
   echo "connection failed". mysqli_connect_error();
 }

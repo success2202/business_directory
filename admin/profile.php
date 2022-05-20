@@ -27,15 +27,16 @@ while($rest = mysqli_fetch_assoc($chs)){
 						<img src="images/breadcromb_bg.png" alt="Image User" class="img-circle">
 						<div class="file-upload profileImageUpload">
 						
+						
 						</div>
 					</div>
 					<div class="profileUserInfo bt profileName">
-						<p>Name: <?php echo $rest['fname']; ?></p>
-						<p>Name: <?php echo $rest['lname']; ?></p>
-						<p>Name: <?php echo $rest['phone']; ?></p>
+						<p>First Name: <?php echo $rest['fname']; ?></p>
+						<p>Last Name: <?php echo $rest['lname']; ?></p>
+						<p>Phone Number: <?php echo $rest['phone']; ?></p>
 						<p>Email: <?php echo $rest['email']; ?></p>
-						<p>Name: <?php echo $rest['city']; ?></p>
-						<p>Name: <?php echo $rest['nationality']; ?></p>
+						<p>City: <?php echo $rest['city']; ?></p>
+						<p>Country: <?php echo $rest['nationality']; ?></p>
 						<p>Date joined: <span> <?php $kk = $rest['date_registered']; 
 						$brk = explode(" ", $kk);
 						echo $brk[0];
@@ -44,7 +45,7 @@ while($rest = mysqli_fetch_assoc($chs)){
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 
 	</div>
 </section>
 <?php 

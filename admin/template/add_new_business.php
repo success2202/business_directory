@@ -100,6 +100,6 @@ $userid = $_GET['userid'];
   </div>
 </section>
  <?php 
-include "includes/footer2.php";
+include "includes/footer.php";
   ?>
   

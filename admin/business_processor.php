@@ -1,7 +1,7 @@
 <?php
 include('includes/db_connect.php');
 error_reporting(E_ALL);
-ini_set('display_errors',0);
+ini_set('display_errors', 0);
 
 $cat = $_POST['category'];
 $name = $_POST['bizName'];
@@ -33,7 +33,7 @@ $busid = $_POST['busid'];
 
 
 
-$file = $_FILES["image"]["name"];
+$file = $_FILES["image"]["name"]; 
 $dir = "../uploads/".$file;
 $dd = move_uploaded_file($_FILES["image"]["tmp_name"],$dir);
            
@@ -41,7 +41,10 @@ function addbiz( $userid, $cat, $name, $baddress, $phoneN, $cities, $file,  $des
     global $con;
     $sql = "INSERT INTO business VALUES(NULL, $userid, $cat,  '$name', '$baddress', $phoneN, '$cities', '$file', '$des',  1, now())"; 
     $ck = mysqli_query($con, $sql);
-    $ss = mysqli_fetch_assoc($ck);
+    
+    
+ //var_dump($ck);
+ //die();
     if($ck){
         header("location:social.php?user_id=".$userid);
     }else{

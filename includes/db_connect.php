@@ -1,6 +1,6 @@
 <?php 
 
-$con = mysqli_connect("localhost", "root", "", "business_directory");
+$con = mysqli_connect("localhost", "root", "", "businessdb");
 
 if(!$con){
 

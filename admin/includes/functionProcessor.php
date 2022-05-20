@@ -4,7 +4,7 @@ include("db_connect.php");
 
 function MostRecent(){
     global $con;
-$sql = "SELECT * FROM business WHERE status = 1";
+$sql = "SELECT * FROM business WHE RE status = 1";
 $chk = mysqli_query($con, $sql);
 return $chk;
 }

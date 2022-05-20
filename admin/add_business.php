@@ -13,7 +13,7 @@ $userid = $_GET['user_id'];
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-    <form method="POST" action="business_processor.php" class="listing__form" enctype="multipart/form-data">
+    <form method="POST" action ="business_processor.php" class="listing__form" enctype="multipart/form-data">
           <div class="dashboardBoxBg mb30">
             <div class="profileIntro paraMargin">
               <h3>About</h3>

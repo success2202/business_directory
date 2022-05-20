@@ -5,9 +5,9 @@ error_reporting(E_ALL);
 ini_set('display_errors','on');
 //db connection test
 
-$user_id = $_SESSION['username'];
-if(!isset($user_id)){
-  header("Location:index.php");
+$user_id = $_SESSION['user_id'];
+if(isset($user_id)){
+
 }
 
 ?>
@@ -36,7 +36,7 @@ if(!isset($user_id)){
 
               //get business name and details for each user 
 
-              $sql = "SELECT * FROM business WHERE user_id = '1' ORDER BY Date_created DESC";
+              $sql = "SELECT * FROM business WHERE user_id = $user_id ORDER BY Date_created DESC";
               $chk = mysqli_query($con, $sql);
               if(!$chk){ echo "failed to connect" . mysqli_connect_error();}
               while($bisCount = mysqli_fetch_assoc($chk)){
