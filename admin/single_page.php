@@ -75,7 +75,7 @@ $res = mysqli_fetch_assoc($chk);
           <div class="media d-block d-sm-flex review">
             <div class="media-body">
               <h6 class="mt-2 mb-1">Name: <?php echo $roc['name'] ; ?></h6>
-             <h6 class="mt-2 mb-1">Email: <?php echo $roc['email'] ; ?></h6>
+             <h6 class="mt-2 mb-1">Email: <?php echo $roc['user_email'] ; ?></h6>
               <div class="mb-2">Rated: 
                 <?php 
                 $mm = 0;
@@ -122,7 +122,7 @@ $res = mysqli_fetch_assoc($chk);
 
             <div id="leaveReview" class="mt-4 collapse show" style="">
               <h5 class="mb-4">Leave a review</h5>
-              <form id="contact-form" method="POST" action="review.php" class="form">
+              <form id="contact-form" method="POST" action="" class="form">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">

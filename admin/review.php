@@ -18,12 +18,16 @@ function Add_social($name, $busid, $rating, $email, $comment){
              
         
 
-	 if(!$bb){
-			 	"error occured" .mysqli_connect_error();
+	 if($bb){
+		header("location:business.php");
+			 
+			 }else{
+				"error occured" .mysqli_connect_error();
 			 }
+
 			
 		
-	header("location:business.php");
+	
 }
 
 
